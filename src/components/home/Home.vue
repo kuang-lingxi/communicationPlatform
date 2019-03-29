@@ -28,18 +28,30 @@
     </main>
     <div style="width: 100%;text-align: center;font-weight: bold;margin: 20px 0;">课程推荐</div>
     <div class="recommendedMain">
-      <span class="recommendeContent" v-for="item in recommende" :key="item.id">
-        <img :src="item.imgUrl" alt="">
-        <p>{{item.title}}</p>
-        <p>{{item.content}}</p>
-      </span>
+      <course
+        v-for="item in course"
+        :key="item.id"
+        :imgUrl="item.imgUrl"
+        :title="item.title"
+        :tag1="item.tag1"
+        :tag2="item.tag2"
+        :money="item.money"
+        :number="item.number"
+        :hot="item.hot"
+        class="course"
+      ></course>
     </div>
+
   </div>
 </template>
 
 <script>
+    import course from '@/components/common/Course'
     export default {
         name: "home",
+        components:{
+          course
+        },
         data() {
           return {
             item:[
@@ -64,14 +76,21 @@
               {id:2, imgUrl:'', title:'3', content:'33'},
               {id:3, imgUrl:'', title:'4', content:'44'},
               {id:4, imgUrl:'', title:'5', content:'55'}
-            ]
+            ],
+            course:[
+              {id:0, imgUrl: '../../../static/images/userImg.jpg',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+              {id:1, imgUrl: '../../../static/images/userImg.jpg',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+              {id:2, imgUrl: '../../../static/images/userImg.jpg',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+              {id:3, imgUrl: '../../../static/images/userImg.jpg',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+              {id:4, imgUrl: '../../../static/images/userImg.jpg',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+             ]
           }
         }
     }
 </script>
 
 <style scoped>
-  /*走马灯底部链接*/
+
   .main{
     margin: 10px auto;
     border:1px solid black;
@@ -84,6 +103,9 @@
     background-color: #2b333b;
     color:#aaadb1;
   }
+
+
+  /*走马灯底部链接的样式*/
   .mainBottom{
     width: 19%;
     /*border:1px solid black;*/
@@ -108,14 +130,17 @@
   }
   /*走马灯底部链接*/
 
+
+  /*左边列表*/
   .item{
+    cursor: pointer;
     padding: 10px;
   }
+
   /*走马灯效果*/
   .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
-
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
@@ -124,11 +149,19 @@
   /*推荐课程*/
   .recommendedMain{
     margin: 0px auto;
-    width:65%;
-    border: 1px solid black;
+    width:1025px;
+    /*border: 1px solid black;*/
+    overflow: hidden;
   }
   .recommendeContent{
     display: inline-block;
     width:20%
+  }
+  /*推荐课程*/
+
+  /*单个课程设置浮动排列一行*/
+  .course {
+    float: left;
+    margin-left: 5px;
   }
 </style>

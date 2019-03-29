@@ -1,15 +1,20 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header>
-
+      <el-header style="padding-right: 0;overflow: hidden">
         <el-row style="line-height: 60px;">
           <el-col :span="2">
             <img src="../static/images/buct.jpg" alt="" height="60px" width="60px">
           </el-col>
-          <el-col :span="2">全部课程</el-col>
-          <el-col :span="2">在线论坛</el-col>
-          <el-col :span="2">资源上传</el-col>
+          <el-col :span="2">
+            <router-link to="allCourse" tag="span" class="link">全部课程</router-link>
+          </el-col>
+          <el-col :span="2">
+            <router-link to="OnlineBBS" tag="span" class="link">在线论坛</router-link>
+          </el-col>
+          <el-col :span="2">
+            <router-link to="upload" tag="span" class="link">资源上传</router-link>
+          </el-col>
           <el-col :span="10">
             <el-input
               placeholder="请输入内容"
@@ -17,14 +22,13 @@
               <i slot="prefix" class="el-input__icon el-icon-search"></i>
             </el-input>
           </el-col>
-          <el-col :offset="1" :span="2" style="line-height: 60px">
-            我的课程
-            <i class="el-icon-bell" style="font-size:25px;margin-left: 10px;"></i>
-          </el-col>
-          <el-col :span="1" style="line-height: 60px">
-            <img :src="userImg" alt="" class="userImg">
+          <el-col :offset="2" :span="4">
+            <router-link to="MyCourse" tag="span" class="link">我的课程</router-link>
+            <i class="el-icon-bell" style="margin-left:20px"></i>
+            <img :src="userImg" alt="" class="userImg" style="vertical-align: middle;margin-left:15px;">
           </el-col>
         </el-row>
+
       </el-header>
       <el-main>
         <router-view></router-view>
@@ -61,8 +65,8 @@ export default {
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-    height: 60px;
-    width:60px;
+    height: 40px;
+    width:40px;
   }
   .el-container{
     height: 100%;
@@ -74,6 +78,7 @@ export default {
   }
   .el-main{
     /*height: 1000px;*/
+    margin-bottom: 100px;
   }
   .el-footer{
     position: fixed;
@@ -83,6 +88,29 @@ export default {
     background-color: #1c1f21;
     color: #838a8e;
     padding: 0px 20% 10px 20%;
+  }
+
+  /*设置路由高亮*/
+  .router-link-active{
+    position: relative;
+    color:red;
+  }
+  .router-link-active::after{
+    content: '';
+    display: block;
+
+    position: absolute;
+    top: 30px;
+    left: 10%;
+
+    height: 2px;
+    width: 80%;
+    background-color: red;
+  }
+
+  /*设置手指型鼠标*/
+  .link{
+    cursor: pointer;
   }
 
 
