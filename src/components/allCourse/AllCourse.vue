@@ -96,7 +96,7 @@
 
                     ]
                 },
-                users: [
+                users: [ 
                     {id:0, imgUrl: '../../../static/images/userImg.jpg', username: "klx"},
                     {id:1, imgUrl: '../../../static/images/userImg.jpg', username: "klx"},
                     {id:2, imgUrl: '../../../static/images/userImg.jpg', username: "klx"},
