@@ -45,7 +45,7 @@
         </el-row>
 
       </el-header>
-      <el-main>
+      <el-main style="background-color:#f8fafc">
         <router-view></router-view>
       </el-main>
       <el-footer height="100px">
@@ -98,12 +98,10 @@ export default {
   }
   .el-main{
     padding: 0;
-    margin-bottom: 100px;
+    min-height: 80vh;
+    padding-bottom: 30px;
   }
   .el-footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
     background-color: #1c1f21;
     color: #838a8e;

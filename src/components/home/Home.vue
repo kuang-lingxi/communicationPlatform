@@ -161,6 +161,7 @@
 
   /*单个课程设置浮动排列一行*/
   .course {
+    width:200px;
     float: left;
     margin-left: 5px;
   }

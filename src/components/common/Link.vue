@@ -11,7 +11,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
   /*设置路由高亮*/
   .router-link-active{
     position: relative;

@@ -57,7 +57,18 @@
                     <router-view></router-view>
                 </el-row>
             </el-col>
-            <el-col :span="4"></el-col>
+            <el-col :span="4">
+                <el-row style="padding: 15px 0">
+                    <div style="margin-bottom: 15px">vue.js 相关用户</div>
+                    <User
+                        v-for="user in users"
+                        :key="user.id"
+                        :imgUrl="user.imgUrl"
+                        :username="user.username"
+                        class="user"
+                    />
+                </el-row>
+            </el-col>
         </el-row>
     </div>
 </template>
@@ -65,6 +76,7 @@
 <script>
     import Link from '../common/Link'
     import Course from '../common/Course'
+    import User from '../common/User'
     export default {
         name: "AllCourse",
         data() {
@@ -83,11 +95,21 @@
                     content: [
 
                     ]
-                }
+                },
+                users: [
+                    {id:0, imgUrl: '../../../static/images/userImg.jpg', username: "klx"},
+                    {id:1, imgUrl: '../../../static/images/userImg.jpg', username: "klx"},
+                    {id:2, imgUrl: '../../../static/images/userImg.jpg', username: "klx"},
+                    {id:3, imgUrl: '../../../static/images/userImg.jpg', username: "klx"},
+                    {id:4, imgUrl: '../../../static/images/userImg.jpg', username: "klx"},
+                    {id:5, imgUrl: '../../../static/images/userImg.jpg', username: "klx"},
+                    {id:6, imgUrl: '../../../static/images/userImg.jpg', username: "klx"}
+                ]
             }
         },
         components: {
-            Link
+            Link,
+            User
         }
     }
 </script>
@@ -122,5 +144,9 @@
     .small-font{
         font-size: 10px;
         color: #888e94;
+    }
+    .user {
+        width:33.33%;
+        display: inline-block;
     }
 </style>

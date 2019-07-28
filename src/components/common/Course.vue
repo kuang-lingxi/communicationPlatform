@@ -1,24 +1,25 @@
 <template>
-    <div class="content">
+    <div>
       <img :src="imgUrl" alt="" class="img">
-      <div class="title">{{title}}</div>
-      <div class="allTag">
-        <span class="tag">{{tag1}}</span>
-        <span class="tag">{{tag2}} </span>
-        <span class="tag">
-          <i class="el-icon-bell"></i>
-           {{number}}
-        </span>
-        <el-rate
-          v-model="hot"
-          disabled
-        >
-        </el-rate>
+      <div class="content">
+        <div class="title">{{title}}</div>
+        <div class="allTag">
+          <span class="tag">{{tag1}}</span>
+          <span class="tag">{{tag2}} </span>
+          <span class="tag">
+            <i class="el-icon-bell"></i>
+            {{number}}
+          </span>
+          <el-rate
+            v-model="hot"
+            disabled
+          >
+          </el-rate>
+        </div>
+        <div class="money">
+          ￥ {{money}}
+        </div>
       </div>
-      <div class="money">
-        ￥ {{money}}
-      </div>
-
     </div>
 </template>
 
@@ -36,8 +37,7 @@
 
 <style scoped>
   .content{
-    width:200px;
-    
+    padding: 0 12px;
   }
   .img{
     -webkit-border-radius: 10px;
@@ -48,9 +48,13 @@
   }
   .title{
     width: 85%;
-    text-align: center;
+    /* text-align: center; */
     margin-top:10px;
     font-size: 15px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .tag{
     margin-left:5px;
@@ -61,7 +65,7 @@
   .allTag {
     width:87%;
     margin-top:2px;
-    text-align: center;
+    /* text-align: center; */
   }
 
   .money {
