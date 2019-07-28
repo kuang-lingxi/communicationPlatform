@@ -37,6 +37,7 @@
 <style scoped>
   .content{
     width:200px;
+    
   }
   .img{
     -webkit-border-radius: 10px;

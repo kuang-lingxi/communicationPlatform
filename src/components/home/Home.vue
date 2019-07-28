@@ -3,7 +3,7 @@
     <main class="main">
       <el-row>
         <el-col :span="6" class="mainLeft">
-          <div class="item" v-for="val in item">
+          <div class="item" v-for="val in item" :key="val.id">
             <div class="item">
               {{val.msg}}
               <i class="el-icon-arrow-right"></i>
@@ -39,7 +39,7 @@
         :number="item.number"
         :hot="item.hot"
         class="course"
-      ></course>
+      />
     </div>
 
   </div>
