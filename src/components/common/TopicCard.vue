@@ -1,5 +1,6 @@
 <template>
     <div class="content">
+        <span class="prompt">{{prompt}}</span>
         <el-row>
             <el-col :span="2">
                 <el-avatar
@@ -41,12 +42,13 @@
 
 <script>
 export default {
-    props: ['imgUrl','type', 'titleFirst', 'titleSecond', 'amount', 'username', 'content']
+    props: ['imgUrl','type', 'titleFirst', 'titleSecond', 'amount', 'username', 'content', 'prompt']
 }
 </script>
 
 <style lang="scss" scoped>
     .content {
+        position: relative;
         box-sizing: border-box;
         width: 90%;
         padding: 25px;
@@ -71,18 +73,17 @@ export default {
         -webkit-box-orient:vertical;/*–从上向下垂直排列子元素–*/
         -webkit-line-clamp:3;/*–限制在一个块元素显示的文本的行数(超出3行显示省略号)–*/
         overflow:hidden;
-        // line-height: 1rem; 
-        // height: 3rem;
-        // overflow: hidden;
-        // &::after {
-        //     content: "...";
-        //     font-weight:bold;
-        //     position:absolute;
-        //     bottom:0;
-        //     right:0;
-        // }
     }
     .title {
         color: red;
+    }
+    .prompt {
+        display: inline-block;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+
+        font-size: 10px;
+        color: #c0c4c7;
     }
 </style>

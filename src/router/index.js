@@ -5,12 +5,14 @@ import AllCourse from '@/components/allCourse/AllCourse'
 import Courses from '@/components/allCourse/Courses'
 import Topic from '@/components/allCourse/Topic'
 import Group from '@/components/allCourse/Group'
+import Information from '@/components/personalInformation/Information'
+import MyCourse from '@/components/personalInformation/MyCourse'
+import MyGroup from '@/components/personalInformation/MyGroup'
+import MyTopic from '@/components/personalInformation/MyTopic'
+import OnlineBbs from '@/components/onlineBBS/OnlineBbs';
+import onlineTopic from '@/components/onlineBBS/Topic'; 
 
 Vue.use(Router)
-
-const User = {
-  template: '<div>User nihao</div>'
-}
 
 export default new Router({
   routes: [
@@ -28,6 +30,27 @@ export default new Router({
         { path: 'courses', component:Courses },
         { path: 'topic', component: Topic},
         { path: 'group', component: Group}
+      ]
+    },
+    {
+      path: '/Information',
+      name: 'information',
+      component: Information,
+      children: [
+        { path: '', redirect: 'myCourse'},
+        { path: 'myCourse', component: MyCourse },
+        { path: 'myTopic', component: MyTopic },
+        { path: 'myGroup', component: MyGroup }
+      ]
+    },
+    {
+      path: '/OnlineBBS',
+      name: 'OnlinBBS',
+      component: OnlineBbs,
+      children: [
+        { path: '', redirect: 'recommended'},
+        { path: 'recommended', component: onlineTopic},
+        { path: 'new', component: onlineTopic}
       ]
     }
   ]

@@ -36,11 +36,13 @@
           </el-col>
           <el-col :offset="2" :span="4">
             <Link
-              componentName = "MyCourse"
+              componentName = "/Information/myCourse"
               text = "我的课程" 
             />
             <i class="el-icon-bell" style="margin-left:20px"></i>
-            <img :src="userImg" alt="" class="userImg" style="vertical-align: middle;margin-left:15px;">
+            <router-link to="/information">
+              <img :src="userImg" alt="" class="userImg" style="vertical-align: middle;margin-left:15px;">
+            </router-link>
           </el-col>
         </el-row>
 
@@ -107,6 +109,8 @@ export default {
     color: #838a8e;
     padding: 0px 20% 10px 20%;
   }
-
+  #app {
+    min-width: 1400px;
+  }
 
 </style>
