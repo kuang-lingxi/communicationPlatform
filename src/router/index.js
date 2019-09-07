@@ -10,7 +10,7 @@ import MyCourse from '@/components/personalInformation/MyCourse'
 import MyGroup from '@/components/personalInformation/MyGroup'
 import MyTopic from '@/components/personalInformation/MyTopic'
 import OnlineBbs from '@/components/onlineBBS/OnlineBbs';
-import onlineTopic from '@/components/onlineBBS/Topic'; 
+import Recommend from '@/components/onlineBBS/Recommend'; 
 
 Vue.use(Router)
 
@@ -49,8 +49,8 @@ export default new Router({
       component: OnlineBbs,
       children: [
         { path: '', redirect: 'recommended'},
-        { path: 'recommended', component: onlineTopic},
-        { path: 'new', component: onlineTopic}
+        { path: 'recommended', component: Recommend},
+        { path: 'new', component: Recommend}
       ]
     }
   ]
