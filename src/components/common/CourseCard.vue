@@ -1,5 +1,5 @@
 <template>
-	<el-row class="card" gutter="20">
+	<el-row class="card" :gutter="20">
 		<el-col :span="5" style="overflow:hidden">
 			<img src="../../../static/images/userImg.jpg" alt="" width="150px" height="80px">
 		</el-col>

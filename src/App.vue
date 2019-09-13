@@ -51,11 +51,11 @@
         <router-view></router-view>
       </el-main>
       <el-footer height="100px">
-        <el-row>
-          <el-col :span="6">企业合作</el-col>
-          <el-col :span="6">联系我们</el-col>
-          <el-col :span="6">意见反馈</el-col>
-          <el-col :span="6">友情链接</el-col>
+        <el-row class="center">
+          <el-col :span="7" >企业合作</el-col>
+          <el-col :span="7">联系我们</el-col>
+          <el-col :span="7">意见反馈</el-col>
+          <el-col :span="3">友情链接</el-col>
         </el-row>
       </el-footer>
     </el-container>
@@ -101,16 +101,25 @@ export default {
   .el-main{
     padding: 0;
     min-height: 80vh;
-    padding-bottom: 30px;
+    padding-bottom: 130px;
+
+    overflow: auto;
   }
   .el-footer{
     width: 100%;
     background-color: #1c1f21;
     color: #838a8e;
     padding: 0px 20% 10px 20%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
   }
   #app {
     min-width: 1400px;
   }
+  .center {
+    margin-top: 50px;
+    transform: translateY(-50%);
 
+  }
 </style>

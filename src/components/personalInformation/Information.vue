@@ -25,7 +25,8 @@
       <el-col :span="4" class="center">
         <div class="setting">
           <i class="el-icon-setting"></i>
-          个人设置
+          <span>个人设置</span>
+          <!-- <router-link to="/Information/setting" tag="span">个人设置</router-link> -->
         </div>
       </el-col>
     </el-row>

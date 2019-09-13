@@ -11,6 +11,8 @@ import MyGroup from '@/components/personalInformation/MyGroup'
 import MyTopic from '@/components/personalInformation/MyTopic'
 import OnlineBbs from '@/components/onlineBBS/OnlineBbs';
 import Recommend from '@/components/onlineBBS/Recommend'; 
+import Setting from '@/components/personalSetting/Setting';
+import Upload from '@/components/upload/Upload';
 
 Vue.use(Router)
 
@@ -40,7 +42,8 @@ export default new Router({
         { path: '', redirect: 'myCourse'},
         { path: 'myCourse', component: MyCourse },
         { path: 'myTopic', component: MyTopic },
-        { path: 'myGroup', component: MyGroup }
+        { path: 'myGroup', component: MyGroup },
+        { path: 'setting', component: Setting}
       ]
     },
     {
@@ -52,6 +55,11 @@ export default new Router({
         { path: 'recommended', component: Recommend},
         { path: 'new', component: Recommend}
       ]
+    },
+    {
+      path: '/Upload',
+      name: 'Upload',
+      component: Upload
     }
   ]
 })
