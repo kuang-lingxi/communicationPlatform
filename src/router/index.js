@@ -13,6 +13,10 @@ import OnlineBbs from '@/components/onlineBBS/OnlineBbs';
 import Recommend from '@/components/onlineBBS/Recommend'; 
 import Setting from '@/components/personalSetting/Setting';
 import Upload from '@/components/upload/Upload';
+import Video from '@/components/video/Video';
+import Introduce from '@/components/video/Introduce';
+import Question from '@/components/video/Question';
+import Chapter from '@/components/video/Chapter';
 
 Vue.use(Router)
 
@@ -60,6 +64,17 @@ export default new Router({
       path: '/Upload',
       name: 'Upload',
       component: Upload
+    },
+    {
+      path: '/Video',
+      name: 'Video',
+      component: Video,
+      children: [
+        { path: '', redirect: 'introduce'},
+        { path: 'introduce', component: Introduce},
+        { path: 'question', component: Question},
+        { path: 'chapter', component: Chapter}
+      ]
     }
   ]
 })
