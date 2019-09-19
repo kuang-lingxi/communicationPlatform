@@ -17,6 +17,7 @@ import Video from '@/components/video/Video';
 import Introduce from '@/components/video/Introduce';
 import Question from '@/components/video/Question';
 import Chapter from '@/components/video/Chapter';
+import Post from '@/components/post/Post';
 
 Vue.use(Router)
 
@@ -57,7 +58,7 @@ export default new Router({
       children: [
         { path: '', redirect: 'recommended'},
         { path: 'recommended', component: Recommend},
-        { path: 'new', component: Recommend}
+        { path: 'new', component: Recommend},
       ]
     },
     {
@@ -75,6 +76,11 @@ export default new Router({
         { path: 'question', component: Question},
         { path: 'chapter', component: Chapter}
       ]
+    },
+    {
+      path: '/Post',
+      name: 'Post',
+      component: Post
     }
   ]
 })
