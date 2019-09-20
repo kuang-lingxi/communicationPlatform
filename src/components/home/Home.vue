@@ -13,7 +13,7 @@
         <el-col :span="18">
           <el-carousel>
             <el-carousel-item v-for="item in 4" :key="item">
-              {{item}}
+              <img src="../../../static/images/5d82d2f4000128de18720632.jpg" alt="" width="100%" height="100%">
             </el-carousel-item>
           </el-carousel>
           <el-row style="padding: 10px">
@@ -56,19 +56,19 @@
           return {
             item:[
               {id:0, msg:'前沿/区块链/人工智能'},
-              {id:1, msg:'前沿/区块链/人工智能'},
-              {id:2, msg:'前沿/区块链/人工智能'},
-              {id:3, msg:'前沿/区块链/人工智能'},
-              {id:4, msg:'前沿/区块链/人工智能'},
-              {id:5, msg:'前沿/区块链/人工智能'},
-              {id:6, msg:'前沿/区块链/人工智能'},
+              {id:1, msg:'前端/小程序/JS'},
+              {id:2, msg:'后端/JAVA/Python'},
+              {id:3, msg:'移动/Android/IOS'},
+              {id:4, msg:'云计算/大数据/容器'},
+              {id:5, msg:'运维/测试/数据库'},
+              {id:6, msg:'UI设计/3D动画/游戏'},
             ],
             bottom:[
-              {id:0, title:'Web前端攻城狮子', content:'互联网时代最火爆的技术', imgUrl:'../static/images/userImg.jpg'},
-              {id:1, title:'Web前端攻城狮子', content:'互联网时代最火爆的技术', imgUrl:'../static/images/userImg.jpg'},
-              {id:2, title:'Web前端攻城狮子', content:'互联网时代最火爆的技术', imgUrl:'../static/images/userImg.jpg'},
-              {id:3, title:'Web前端攻城狮子', content:'互联网时代最火爆的技术', imgUrl:'../static/images/userImg.jpg'},
-              {id:4, title:'Web前端攻城狮子', content:'互联网时代最火爆的技术', imgUrl:'../static/images/userImg.jpg'},
+              {id:0, title:'Web前端攻城狮子', content:'互联网时代最火爆的技术', imgUrl:'../../../static/images/5d4ceaef09c3cb6612000676.png'},
+              {id:1, title:'Web前端攻城狮子', content:'互联网时代最火爆的技术', imgUrl:'../../../static/images/5d4ceaef09c3cb6612000676.png'},
+              {id:2, title:'Web前端攻城狮子', content:'互联网时代最火爆的技术', imgUrl:'../../../static/images/5d4ceaef09c3cb6612000676.png'},
+              {id:3, title:'Web前端攻城狮子', content:'互联网时代最火爆的技术', imgUrl:'../../../static/images/5d4ceaef09c3cb6612000676.png'},
+              {id:4, title:'Web前端攻城狮子', content:'互联网时代最火爆的技术', imgUrl:'../../../static/images/5d4ceaef09c3cb6612000676.png'},
             ],
             recommende:[
               {id:0, imgUrl:'', title:'1', content:'11'},
@@ -78,11 +78,11 @@
               {id:4, imgUrl:'', title:'5', content:'55'}
             ],
             course:[
-              {id:0, imgUrl: '../../../static/images/userImg.jpg',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
-              {id:1, imgUrl: '../../../static/images/userImg.jpg',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
-              {id:2, imgUrl: '../../../static/images/userImg.jpg',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
-              {id:3, imgUrl: '../../../static/images/userImg.jpg',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
-              {id:4, imgUrl: '../../../static/images/userImg.jpg',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+              {id:0, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+              {id:1, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+              {id:2, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+              {id:3, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+              {id:4, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
              ]
           }
         }

@@ -1,6 +1,27 @@
 <template>
   <div id="app">
     <el-container>
+      <el-dialog
+        title="登陆"
+        :visible.sync="dialogVisible"
+        width="30%"
+        :before-close="handleClose">
+        <el-form ref="form" label-width="80px">
+          <el-form-item label="用户名">
+            <el-input v-model="username"></el-input>
+          </el-form-item>
+          <el-form-item label="密码">
+            <el-input v-model="password"></el-input>
+          </el-form-item>
+          <el-form-item>
+            
+          </el-form-item>
+        </el-form>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+        </span>
+      </el-dialog>
       <el-header style="padding-right: 0;overflow: hidden">
         <el-row style="line-height: 60px;">
           <el-col :span="2">
@@ -34,7 +55,8 @@
             >
             </el-input>
           </el-col>
-          <el-col :offset="2" :span="4">
+          <el-col :offset="2" :span="3" style="text-align:right">
+            <!-- <el-button size="mini" @click="dialogVisible = true">登陆</el-button> -->
             <Link
               componentName = "/Information/myCourse"
               text = "我的课程" 
@@ -71,6 +93,9 @@ export default {
     return {
       userImg:'../static/images/userImg.jpg',
       input:'',
+      dialogVisible:false,
+      username:'',
+      password:''
     };
   },
   components: {

@@ -2,7 +2,7 @@
   <div>
     <el-row class="video">
       <el-col :span="17">
-        <video src="https://www.runoob.com/try/try.php?filename=tryhtml5_video_all" width="100%" height="600px" controls></video>
+        <video src="../../../static/video/20190717_190509.mp4" width="100%" height="600px" controls></video>
       </el-col>
       <el-col :offset="1" :span="6">
         <div class="pading">
