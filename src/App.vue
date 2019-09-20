@@ -5,7 +5,7 @@
         title="登陆"
         :visible.sync="dialogVisible"
         width="30%"
-        :before-close="handleClose">
+      >
         <el-form ref="form" label-width="80px">
           <el-form-item label="用户名">
             <el-input v-model="username"></el-input>

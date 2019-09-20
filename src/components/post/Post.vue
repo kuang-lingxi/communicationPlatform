@@ -126,14 +126,42 @@ export default {
   components: {
     Reply
   },
-   methods: {
-      handleSizeChange(val) {
-        console.log(`每页 ${val} 条`);
-      },
-      handleCurrentChange(val) {
-        console.log(`当前页: ${val}`);
-      }
+  methods: {
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
     },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    }
+  },
+  mounted() {
+    this.$axios.get('api/getReply?did=1')
+    .then((result) => {
+      let reply = [];
+      for(let item of result.data) {
+        let temp = {};
+        temp.key = item.id;
+        temp.imgUrl = '../../../static/images/buct.jpg';
+        temp.name = item.username;
+        temp.text = item.text;
+        if(item.type === 0) {
+          temp.type = "学生";
+        }else if(item.type === 1) {
+          temp.type = "老师"
+        }else {
+          temp.type = "其他"
+        }
+        // console.log(item.time);
+        temp.time = new Date(parseInt(item.time)*1000).toLocaleString();
+        // console.log(temp.time);
+        reply.push(temp);
+      }
+      this.reply = reply;
+    })
+    .catch((err) => {
+      
+    });
+  }
 }
 </script>
 
