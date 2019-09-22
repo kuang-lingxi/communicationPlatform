@@ -1,32 +1,31 @@
 <template>
   <div>
+    <el-dialog
+      title="提问"
+      :visible.sync="dialogVisible"
+      width="30%"
+    >
+      <el-input type="textarea" v-model="textarea"></el-input>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="submit">确 定</el-button>
+      </span>
+    </el-dialog>
     <el-row>
       <el-col :offset="20" :span="3">
-        <div class="publish">我要发布</div>
+        <div class="publish" @click="publish">我要发布</div>
       </el-col>
     </el-row>
-    <el-row class="content">
+    <el-row class="content" v-for="item in question" :key="item.title">
       <el-col :offset="2" :span="3">
         <el-avatar src="../../../static/images/userImg.jpg"></el-avatar>
       </el-col>
       <el-col :span="18">
-        <h5>UI好学吗?</h5>
+        <h5>{{item.title}}</h5>
         <div class="answer">我来回答 +2积分</div><br>
-        <span class="font">0 回答</span>
-        <span class="font">83 浏览</span>
-        <span class="font time">2019-7-2</span>
-      </el-col>
-    </el-row>
-    <el-row class="content">
-      <el-col :offset="2" :span="3">
-        <el-avatar src="../../../static/images/userImg.jpg"></el-avatar>
-      </el-col>
-      <el-col :span="18">
-        <h5>有UI大神吗?问几个问题可以吗？</h5>
-        <div class="answer">我来回答 +2积分</div><br>
-        <span class="font">17 回答</span>
-        <span class="font">813 浏览</span>
-        <span class="font time">2019-8-2</span>
+        <span class="font">{{item.answer}}</span>
+        <span class="font">{{item.view}}</span>
+        <span class="font time">{{item.time}}</span>
       </el-col>
     </el-row>
   </div>
@@ -34,7 +33,37 @@
 
 <script>
 export default {
-  
+  data() {
+    return {
+      question: [
+        {title:'有UI大神吗?问几个问题可以吗', answer:'17 回答', view: '814浏览', time:'2019/9/22 上午9:43:50'},
+        {title:'UI好学吗', answer:'0 回答', view: '814浏览', time:'2019/9/22 上午9:43:50'}
+      ],
+      dialogVisible: false,
+      textarea: "",
+    }
+  },
+  methods: {
+    publish() {
+      this.dialogVisible = true;
+    },
+    submit() {
+      this.dialogVisible = false;
+      let temp = {};
+      temp.title = this.textarea;
+      temp.answer = "0 回答"
+      temp.view = "0 浏览"
+      temp.time = new Date().toLocaleString();
+      this.question.push(temp);
+      localStorage.setItem('question', JSON.stringify(this.question));
+    }
+  },
+  mounted() {
+    if(localStorage.getItem('question')) {
+      this.question = JSON.parse(localStorage.getItem('question'));
+    }
+    console.log(this.question);
+  }
 }
 </script>
 
@@ -70,6 +99,6 @@ export default {
     margin-right: 10px;
   }
   .time {
-    margin-left: 55%;
+    margin-left: 40%;
   }
 </style>

@@ -6,11 +6,11 @@
           <el-avatar class="centerImg" src="../../../static/images/userImg.jpg"></el-avatar>
         </el-col>
         <el-col :span="7" style="line-height: 70px;">
-          <h4>有没有UI大神？问几个问题可以吗？</h4>
+          <h4>人工智能还有前景吗?</h4>
         </el-col>
         <el-col :span="15" style="line-height: 75px;font-size: 10px;color:#c2c3c4">
-          <span>参与人数: 15</span>
-          <span>回帖: 20</span>
+          <!-- <span>参与人数: 15</span>
+          <span>回帖: 20</span> -->
         </el-col>
       </el-row>
       <el-row style="display:flex">
@@ -92,11 +92,11 @@
         </el-col>
         <el-col>
           <div class="content">
-            <textarea name="" id="" cols="100" rows="20" style="background-color:#ffffff"></textarea>
+            <textarea v-model="text" name="" id="" cols="100" rows="20" style="background-color:#ffffff"></textarea>
           </div>
         </el-col>
         <el-col style="margin-top: 10px">
-          <el-button size="mini" type="primary">回复</el-button>
+          <el-button size="mini" type="primary" @click="submit">回复</el-button>
         </el-col>
       </el-row>
     </el-col>
@@ -120,7 +120,8 @@ export default {
       currentPage1: 5,
       currentPage2: 5,
       currentPage3: 5,
-      currentPage4: 4
+      currentPage4: 4,
+      text:""
     }
   },
   components: {
@@ -132,35 +133,49 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+    submit() {
+      let qs = require('qs');
+      this.$axios.post('api/addReply', qs.stringify({
+          username: localStorage.getItem('name'),
+          type: localStorage.getItem('type'),
+          text: this.text,
+          time: (new Date()).valueOf()+""
+      }))
+      this.text = "";
+      this.getMsg();
+    },
+    getMsg() {
+      this.$axios.get('api/getReply?did=1')
+        .then((result) => {
+          let reply = [];
+          for(let item of result.data) {
+            let temp = {};
+            temp.key = item.id;
+            temp.imgUrl = '../../../static/images/buct.jpg';
+            temp.name = item.username;
+            temp.text = item.text;
+            if(item.type === 0) {
+              temp.type = "学生";
+            }else if(item.type === 1) {
+              temp.type = "老师"
+            }else {
+              temp.type = "其他"
+            }
+            // console.log(item.time);
+            temp.time =`${item.id}楼 ${new Date(parseInt(item.time)).toLocaleString()}`;
+            // console.log(temp.time);
+            reply.push(temp);
+          }
+          this.reply = reply;
+        })
+        .catch((err) => {
+          
+        });
     }
   },
   mounted() {
-    this.$axios.get('api/getReply?did=1')
-    .then((result) => {
-      let reply = [];
-      for(let item of result.data) {
-        let temp = {};
-        temp.key = item.id;
-        temp.imgUrl = '../../../static/images/buct.jpg';
-        temp.name = item.username;
-        temp.text = item.text;
-        if(item.type === 0) {
-          temp.type = "学生";
-        }else if(item.type === 1) {
-          temp.type = "老师"
-        }else {
-          temp.type = "其他"
-        }
-        // console.log(item.time);
-        temp.time = new Date(parseInt(item.time)*1000).toLocaleString();
-        // console.log(temp.time);
-        reply.push(temp);
-      }
-      this.reply = reply;
-    })
-    .catch((err) => {
-      
-    });
+    this.getMsg();
   }
 }
 </script>

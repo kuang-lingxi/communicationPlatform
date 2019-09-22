@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <router-link tag="div" to="/post" class="content">
         <span class="prompt">{{prompt}}</span>
         <el-row>
             <el-col :span="2">
@@ -37,7 +37,7 @@
                 </el-row>
             </el-col>
         </el-row>
-    </div>
+    </router-link>
 </template>
 
 <script>
@@ -54,6 +54,7 @@ export default {
         padding: 25px;
         background-color: white;
         border-radius: 5px;
+        cursor: pointer;
     }
     .small-font{
         color:#bbbfc2;

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <router-link to="/video" tag="div" style="cursor:pointer">
       <img :src="imgUrl" alt="" class="img">
       <div class="content">
         <div class="title">{{title}}</div>
@@ -17,10 +17,10 @@
           </el-rate>
         </div>
         <div class="money">
-          ￥ {{money}}
+          <!-- ￥ {{money}} -->
         </div>
       </div>
-    </div>
+    </router-link>
 </template>
 
 <script>

@@ -11,7 +11,7 @@
             <el-input v-model="username"></el-input>
           </el-form-item>
           <el-form-item label="密码">
-            <el-input v-model="password"></el-input>
+            <el-input v-model="password" type="password"></el-input>
           </el-form-item>
           <el-form-item>
             
@@ -19,7 +19,7 @@
         </el-form>
         <span slot="footer" class="dialog-footer">
           <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+          <el-button type="primary" @click="submit">确 定</el-button>
         </span>
       </el-dialog>
       <el-header style="padding-right: 0;overflow: hidden">
@@ -56,15 +56,14 @@
             </el-input>
           </el-col>
           <el-col :offset="2" :span="3" style="text-align:right">
-            <!-- <el-button size="mini" @click="dialogVisible = true">登陆</el-button> -->
-            <Link
-              componentName = "/Information/myCourse"
-              text = "我的课程" 
-            />
-            <i class="el-icon-bell" style="margin-left:20px"></i>
-            <router-link to="/information">
-              <img :src="userImg" alt="" class="userImg" style="vertical-align: middle;margin-left:15px;">
-            </router-link>
+            <el-button v-if="!isLogin" size="mini" @click="dialogVisible = true">登陆</el-button>
+            <div v-else>
+              <span @click="Logout" style="cursor:pointer">注销</span>
+              <i class="el-icon-bell" style="margin-left:20px"></i>
+              <router-link to="/information">
+                <img :src="userImg" alt="" class="userImg" style="vertical-align: middle;margin-left:15px;">
+              </router-link>
+            </div>
           </el-col>
         </el-row>
 
@@ -95,11 +94,73 @@ export default {
       input:'',
       dialogVisible:false,
       username:'',
-      password:''
+      password:'',
+      isLogin:false,
     };
   },
   components: {
     Link
+  },
+  methods:{
+    submit() {
+      var qs = require('qs');
+      this.dialogVisible = false;
+      this.$axios.post('api/isLegal', qs.stringify({
+          username: this.username,
+          password: this.password
+      }))
+      .then((res) => {
+        if(res.data) {
+          this.$axios.get('api/Message?uid=1')
+            .then(res => {
+              let data = res.data;
+              localStorage.setItem('isLogin', true);
+              localStorage.setItem('name', data.name);
+              localStorage.setItem('imgUrl', '../static/images/userImg.jpg');
+              localStorage.setItem('type', 0);
+              this.isLogin = true;
+              this.username = "";
+              this.password = "";
+              this.$message({
+                showClose:true,
+                message: '登陆成功',
+                type: 'success'
+              })
+            })
+        }else {
+          this.$message({
+            showClose: true,
+            message: '用户名或密码错误',
+            type: 'error'
+          });
+          this.username = "";
+          this.password = "";
+        }
+      })
+    },
+    Logout() {
+      localStorage.removeItem('isLogin');
+      localStorage.removeItem('name');
+      localStorage.removeItem('imgUrl');
+      localStorage.removeItem('type');
+      this.isLogin = false;
+      this.$message({
+        showClose:true,
+        message: '注销成功',
+        type: 'success'
+      })
+    }
+  },
+  mounted() {
+    if(localStorage.getItem('isLogin')) {
+      this.isLogin = true;
+    }
+  },
+  beforeDestroy() {
+    localStorage.removeItem('isLogin');
+    localStorage.removeItem('name');
+    localStorage.removeItem('imgUrl');
+    localStorage.removeItem('type');
   }
 }
 </script>

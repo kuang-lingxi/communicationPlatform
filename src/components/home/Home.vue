@@ -78,9 +78,9 @@
               {id:4, imgUrl:'', title:'5', content:'55'}
             ],
             course:[
-              {id:0, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
-              {id:1, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
-              {id:2, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+              {id:0, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'UI设计实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+              {id:1, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'UI设计实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
+              {id:2, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'UI设计实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
               {id:3, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
               {id:4, imgUrl: '../../../static/images/5d4ceaef09c3cb6612000676.png',title:'Vue2.x饿了么实战', tag1:'实战', tag2:'中级', money:280, hot:3.7, number:2100},
              ]
